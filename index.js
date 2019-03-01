@@ -6,12 +6,21 @@ function Post(){
 
 	return(
 		<div className="post">
-			<div>
-			<Profile/>
-			<Name/>
-				</div>		
+			
+				<Profile/>
+				<Name/>
+			
+
+
 			<div className = "content">
 				<Text/>
+			</div>
+			
+
+			<div className="Buttons">
+				<Likes/>
+				<Comments/>
+				<Share/>
 			</div>
 			
 		</div>	
