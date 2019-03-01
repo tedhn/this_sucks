@@ -6,18 +6,15 @@ function Post(){
 
 	return(
 		<div className="post">
-			
-				<Profile/>
-				<Name/>
-			
-
+		
+			<Profile/>
 
 			<div className = "content">
 				<Text/>
 			</div>
 			
 
-			<div className="Buttons">
+			<div>
 				<Likes/>
 				<Comments/>
 				<Share/>
@@ -30,15 +27,19 @@ function Post(){
 function Profile() {
 
 	return(
-		<span>
+		<div className="profile">
 		<img
 			src="https://www.gravatar.com/avatar/nothing"
 			className="pp"
 			alt="pp"
 		/>
 
-		</span>
-		
+		<div>
+			<Name/>
+			<Timestamp/>
+		</div>
+
+		</div>
 	);
 }
 
@@ -60,24 +61,30 @@ function Name(){
 	);
 }
 
-function Likes() {
+const Likes = () =>{
 	return(
-		<button>Like</button>
+		<button><i class="fa fa-thumbs-o-up"/></button>
 	);
 }
 
-function Comments() {
+const Comments = () => {
 	return(
-		<button>Comment</button>
+		<button><i class="fa fa-comment-o"></i></button>
 	);
 }
 
-function Share() {
+const Share = () => {
 	return(
-		<button>Share</button>
+		<button><i class="fa fa-share"></i></button>
 	);
 }
 
-
+function Timestamp() {
+	return(
+		<div className="timestamp">
+			time
+		</div>
+	);
+}
 
 ReactDOM.render( <Post/> , document.querySelector("#root"));

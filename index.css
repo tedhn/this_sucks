@@ -1,13 +1,16 @@
 .post{
 	border : 1px solid #ccc;
-	width : 500px;
+	width : 600px;
 	min-height : 100px;
 	max-height: 600px;
 	padding: 10px;
-	
 	font-family: Helvetica;
 	font-size: 14px;
 	line-height: 20px;	
+}
+
+.profile{
+	display : flex;
 }
 
 .pp{
@@ -19,14 +22,25 @@
 
 .name{
 	font-size: 13px;
-	padding-bottom: 5px;
+	padding-bottom: 0.2px;
+}
+
+.timestamp{
+	font-size: 10px;
+	color:#bebcbc;
 }
 
 .text{
 	font-size: 12px;
 	font-weight: bold;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 
-.buttons{
-	width : 100%;
+button{
+	width: 200px;
+	height: 22px;
+	border: none;
+	background: none;
+	font-size: 15px;
 }
