@@ -1,46 +1,38 @@
-.post{
-	border : 1px solid #ccc;
-	width : 600px;
-	min-height : 100px;
-	max-height: 600px;
-	padding: 10px;
-	font-family: Helvetica;
-	font-size: 14px;
-	line-height: 20px;	
-}
-
-.profile{
-	display : flex;
-}
-
-.pp{
-	height: 32px;
-	width: 32px;
-	border-radius: 30px;
-	margin-right: 10px;
-}
-
-.name{
-	font-size: 13px;
-	padding-bottom: 0.2px;
-}
-
-.timestamp{
-	font-size: 10px;
-	color:#bebcbc;
-}
-
-.text{
-	font-size: 12px;
+.list{
+	border: 1px solid #ccc;
+	width: 500px;
+	min-height: 50px;
+	max-height: 500px;
+	font-size: 18px;
+	padding-top: 15px;
 	font-weight: bold;
-	padding-bottom: 10px;
-	padding-top: 10px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-button{
-	width: 200px;
-	height: 22px;
-	border: none;
-	background: none;
-	font-size: 15px;
+.inputbox{
+	width: auto;
+}
+
+.inputbox input{
+	width: 75%;
+}
+
+
+.enterbutton{
+	font-size: 13px;
+	padding-left: 10px;
+}
+
+.inputUI{
+	padding: 10px 10px 10px 10px;
+}
+
+#todolist{
+	font-size: 13px;
+	font-weight: normal;
+	text-align: left;
+	padding-left: 60px;
+	padding-top: 25px;
+	
 }
