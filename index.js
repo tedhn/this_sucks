@@ -13,13 +13,15 @@ function List() {
 		<div className="inputUI">
 		<Input/>
 		<Enter/>
+
+		<item/>
 		</div>
 
 		</div>
 	);
 }
 
-function Input(){
+const Input =()=>{
 	return(
 		<span className="inputbox"><input id="input" type="text" /></span>
 	);
@@ -34,13 +36,13 @@ const Enter =()=>{
 function add(){
 	var saved = document.getElementById("input").value;
 	
-	<item todo = {saved} />
+	document.getElementById("input").innerText = saved;
 
 }
 
-const item =(todo)=> {
+const item =()=> {
 	return(
-		<div>todo</div>
+		<div>hihihi</div>
 	);
 }
 
