@@ -2,49 +2,42 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-function List() {
-	return(
-		<div className="list">
-		<div>To Do List</div>
-		
-		<div id="todolist">hihihi</div>
+class ToDo extends React.Component{
 	
+	state = {
+			editing  : false
+	};
 
-		<div className="inputUI">
-		<Input/>
-		<Enter/>
+	render(){
 
-		<item/>
-		</div>
 
-		</div>
-	);
-}
-
-const Input =()=>{
-	return(
-		<span className="inputbox"><input id="input" type="text" /></span>
-	);
-}
-
-const Enter =()=>{
-	return(
-		<span className="enterbutton"><button onClick={add}>Enter</button></span>
-	);
-}
-
-function add(){
-	var saved = document.getElementById("input").value;
+		if(this.state.editing){
+			return this.editingmode();
+		}
+		else{
+			return this.normalmode();
+		}
 	
-	document.getElementById("input").innerText = saved;
+	}
 
+	editingmode =()=>{
+		return(
+			<div>
+				<textarea type="text" value={this.props.children}></textarea>
+				<button onClick={()=> this.setState({editing : false})}>Save</button>
+			</div>
+		);
+	}
+
+	normalmode =()=>{
+		return(
+			<div>
+				<span>{this.props.children}</span>
+				<button onClick={()=> this.setState({editing : true})}>Edit</button>
+				<button>Remove</button>
+			</div>
+		);
+	}
 }
 
-const item =()=> {
-	return(
-		<div>hihihi</div>
-	);
-}
-
-
-ReactDOM.render(<List/> , document.querySelector("#root"));
+ReactDOM.render( <ToDo>HELLO WORLD</ToDo> , document.querySelector("#root"));
