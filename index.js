@@ -4,19 +4,13 @@ import "./index.css";
 
 class ToDo extends React.Component{
 	
-	constructor(props){
-		super(props)
-		this.state = {
-				editing  : false,
-				value : this.props.children
-		};
-	}
-	
+	state = {
+		editing  : false,
+	};	
 
 	render(){
 
-		if(this.state.editing){
-			
+		if(this.state.editing){		
 			return this.editingmode();
 		}
 		else{
@@ -29,9 +23,8 @@ class ToDo extends React.Component{
 	editingmode =()=>{
 		return(
 			<div>
-				{console.log(this.state.value)}
 				<input type="text" ref="newtext" deafultvalue={this.props.children}></input>
-				<button onClick={this.saved}>Save</button>
+				<button onClick={this.saved}><i class="fa fa-check"></i></button>
 			</div>
 		);
 	}
@@ -39,10 +32,9 @@ class ToDo extends React.Component{
 	normalmode =()=>{
 		return(
 			<div>				
-				{console.log(this.state.value)}
-				<span>{this.state.value}</span>
-				<button onClick={()=> this.setState({editing : true})}>Edit</button>
-				<button onClick={this.remove}>Remove</button>
+				<span>{this.props.children}</span>
+				<button onClick={()=> this.setState({editing : true})}><i class="fa fa-edit"></i></button>
+				<button onClick={this.remove}><i class="fa fa-close"></i></button>
 			</div>
 		);
 	}
@@ -53,27 +45,22 @@ class ToDo extends React.Component{
 	}
 
 	remove = () =>{
-		console.log(this.props.index)
 		this.props.RC(this.props.index)
 	}
 }
 
 class Board extends React.Component{
 	state={
-		task : [
-			"Hello",
-			"Default Text",
-			"World"
-		]
+		task : []
 	}
 
 	loop = (item , i)=>{
-		return(<ToDo key={i} index={i} UC={this.updateComment} RC={this.removeComment}>
+		return(<ToDo key={i} index={i} UC={this.updateTask} RC={this.removeTask}>
 			{item}
 		</ToDo>);
 	}
 
-	removeComment = (index) =>{
+	removeTask = (index) =>{
 		
 		var arr = this.state.task;
 		
@@ -84,7 +71,7 @@ class Board extends React.Component{
 		})
 	}
 
-	updateComment = (newtext , index) => {
+	updateTask = (newtext , index) => {
 		var arr = this.state.task;
 		arr[index] = newtext;
 		this.setState({
@@ -92,10 +79,25 @@ class Board extends React.Component{
 		})
 	}
 
+	addTask = () =>{
+		var arr = this.state.task;
+		arr.push("DF");
+
+		this.setState({
+			task : arr
+		})
+		
+		
+	}
+
 	render(){
 		return(
-			<div>
-				{this.state.task.map(this.loop)}
+			<div className="list">
+
+				<button onClick={this.addTask}><i className="fa fa-plus"></i></button>
+				<div className="inputbox">{this.state.task.map(this.loop)}</div>
+				
+				
 			</div>
 		);
 	}
